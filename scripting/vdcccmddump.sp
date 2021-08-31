@@ -1,7 +1,7 @@
 #pragma newdecls required
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0"
+#define PLUGIN_VERSION "1.0.1"
 
 #define NAME_SIZE 256
 #define DESC_SIZE 1024
@@ -101,7 +101,7 @@ void WriteDumpWikiTable(File fh, ArrayList arr, char[] version)
 {
   fh.WriteLine("<!-- build number: %s, total ccmds: %d -->", version, arr.Length);
 
-  fh.WriteString("{| class=\"standard-table\" style=\"margin:1em 0;width:100%;white-space:pre-wrap\"\n"
+  fh.WriteString("{|class=\"standard-table\" style=\"margin:1em 0;width:100%;white-space:pre-wrap\"\n"
             ... "! Name !! Cmd? !! Default !! Min !! Max !! Flags !! Description\n", false);
 
   char alphchar;
