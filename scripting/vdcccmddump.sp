@@ -1,7 +1,7 @@
 #pragma newdecls required
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.2"
+#define PLUGIN_VERSION "1.0.3"
 
 #define NAME_SIZE 256
 #define DESC_SIZE 1024
@@ -306,9 +306,10 @@ bool IsAddonCCmd(char[] name)
 {
   if (StrEqual(name, "metamod_version") ||
       StrEqual(name, "sourcemod_version") ||
-      StrEqual(name, "mm") ||
+      StrEqual(name, "meta") ||
+      StrEqual(name, "mm_basedir") ||
+      StrEqual(name, "mm_pluginsfile") ||
       StrEqual(name, "sm") ||
-      StrContains(name, "mm_") == 0 ||
       StrContains(name, "sm_") == 0 ||
       StrContains(name, "prec_") == 0)
   {
