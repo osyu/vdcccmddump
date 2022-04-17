@@ -122,9 +122,9 @@ void WriteDumpWikiTable(File fh, ArrayList arr, char[] version)
     StripCCmdName(namestrp, sizeof(namestrp));
 
     if (!(~buf.flags & (1<<1 | 1<<14))) // DEVONLY+CHEAT
-      style = ";color:#5a5151;font-style:italic";
+      style = ";color:#6a5d5c;font-style:italic";
     else if (buf.flags & 1<<1) // DEVONLY
-      style = ";color:#515151;font-style:italic";
+      style = ";color:#5d5d5c;font-style:italic";
     else if (!(~buf.flags & (1<<4 | 1<<14))) // HIDDEN+CHEAT
       style = ";color:#8f7877";
     else if (buf.flags & 1<<4) // HIDDEN
