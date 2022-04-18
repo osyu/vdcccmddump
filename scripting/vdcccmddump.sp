@@ -1,7 +1,7 @@
 #pragma newdecls required
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.3"
+#define PLUGIN_VERSION "1.0.5"
 
 #define NAME_SIZE 256
 #define DESC_SIZE 1024
@@ -110,7 +110,6 @@ void WriteDumpWikiTable(File fh, ArrayList arr, char[] version)
   char defvalue[256];
   float _min, _max;
   char min[16], max[16];
-  char ftchar;
   bool write_delim;
   SCCmd buf;
 
@@ -197,12 +196,21 @@ void WriteDumpWikiTable(File fh, ArrayList arr, char[] version)
     fh.WriteString("\"\n", false);
 
     // name
-    fh.WriteInt8('|');
-    ftchar = buf.name[0];
-    if (ftchar == '+' || ftchar == '-')
+    fh.WriteString("|id=\"", false);
+    if (buf.name[0] == '+')
     {
-      fh.WriteInt8('|');
+      fh.WriteString("p__", false);
     }
+    else if (buf.name[0] == '-')
+    {
+      fh.WriteString("m__", false);
+    }
+    else
+    {
+      fh.WriteInt8(buf.name[0]);
+    }
+    fh.WriteString(buf.name[1], false);
+    fh.WriteString("\"|", false);
     fh.WriteString(buf.name, false);
 
     // cmd?
